@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Limelight', cursive;
+    background-color: #121212;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+a {
+    color: whitesmoke;
+    font-size: 0.7rem;
+    padding: 0.8em 0.5em;
+    text-align: center;
+    background-color: #45613e;
+    text-decoration: none;
+    border-radius: 1em;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8em;
+    height: 100px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('images/filmposters.jpg') center/cover no-repeat;
+}
