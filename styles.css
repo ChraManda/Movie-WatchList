@@ -16,6 +16,16 @@ h1, h2, h3, h4, h5, h6, p, a {
 h1 {
     font-size: 2rem;
 }
+.movie-info p,
+.movie-info button,
+.movie-summary,
+.movie-ratings{
+    font-size: 0.8rem;
+}
+
+.movie-summary {
+    font-weight: 200;
+}
 
 /* ------CONTENTS --------- */
 button {
@@ -50,19 +60,38 @@ a:hover, a:active {
     margin: 0 auto;
     padding: 0 2em;
 }
-.header-container {
+.header-container,
+.search-container,
+.movies-container,
+.movie-header,
+.movie-info,
+.movie-desc {
     display: flex;
+}
+
+.header-container,
+.movie-info {
     align-items: center;
+}
+
+.header-container,
+.movie-info,
+.movie-desc {
     justify-content: space-between;
+}
+
+.header-container {
     padding: 1.5em 0;
     height: 100px;
     gap: 1em;
 }
 
+.movie-header {
+    flex-direction: column;
+}
 .search-container {
     position: sticky;
     margin-top: -0.8em;
-    display: flex;
     justify-content: center;
 }
 
@@ -83,10 +112,12 @@ a:hover, a:active {
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     }
+
 .input-container input:focus {
     box-shadow: 0 0 3px 2px rgba(66, 133, 244, 0.3);
     outline: none;
 }
+
 .search-button {
     padding: 8px 16px;
     border: 1px solid #ccc;
@@ -104,17 +135,20 @@ a:hover, a:active {
 
 .movies-container {
     margin-top: 2.5em;
-    display: flex;
     gap: 1.5em;
+    padding-bottom: 3em;
 }
+.movies-container:not(:last-child) {
+    border-bottom: 1px solid #8e8e8e;
+}
+
 .movie-poster {
     width: 100px;
     object-fit: cover;
     aspect-ratio: 2/3;
 }
-.movie-header {
-    display: flex;
-    align-items: center;
+
+.movie-info {
     gap: 0.8em;
 }
 
@@ -135,6 +169,7 @@ a:hover, a:active {
     padding: 0.5em;
     font-size: 0.8em;
     border-radius: 50%;
+    text-shadow: 2px 2px 5px black;
 }
 
 .watchlist-button i:hover,
@@ -142,25 +177,7 @@ a:hover, a:active {
     background-color: #e2e2e2;
 }
 
-
-.movie-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.em;
-}
-
-.movie-info p,
-.movie-info button,
-.movie-summary{
-    font-size: 0.8rem;
-}
-
-.movie-summary {
-    font-weight: 200;
-}
 .movie-desc {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 0.8em;
 }
