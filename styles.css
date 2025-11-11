@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Limelight', cursive;
+    font-family: "Roboto", sans-serif;
     background-color: #121212;
     color: #ffffff;
     font-size: 14px;
 }
 
+/* ------TYPOGRAPHY--------- */
 h1, h2, h3, h4, h5, h6, p, a {
     margin: 0;
 }
@@ -17,21 +16,151 @@ h1, h2, h3, h4, h5, h6, p, a {
 h1 {
     font-size: 2rem;
 }
+
+/* ------CONTENTS --------- */
+button {
+    cursor: pointer;
+}
+
+input,
+button {
+    font-family: inherit;
+}
+
 a {
     color: whitesmoke;
     font-size: 0.7rem;
-    padding: 0.8em 0.5em;
+    padding: 0.5em 1em;
     text-align: center;
     background-color: #45613e;
     text-decoration: none;
     border-radius: 1em;
 }
 
+a:hover, a:active {
+    background-color: #5a7d4c;
+}
+
+.header {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('images/filmposters.jpg') center/cover no-repeat;
+}
+
+.container {
+    max-width: 470px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.8em;
+    padding: 1.5em 0;
     height: 100px;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('images/filmposters.jpg') center/cover no-repeat;
+    gap: 1em;
+}
+
+.search-container {
+    position: sticky;
+    margin-top: -0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.input-container input {
+    padding: 8px 8px 8px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    }
+.input-container input:focus {
+    box-shadow: 0 0 3px 2px rgba(66, 133, 244, 0.3);
+    outline: none;
+}
+.search-button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    width: 100px;
+    background: #222;
+    color: white;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-button:hover,
+.search-button:active {
+    background: #515151;
+}
+
+
+.movies-container {
+    margin-top: 2.5em;
+    display: flex;
+    gap: 1.5em;
+}
+.movie-poster {
+    width: 100px;
+    object-fit: cover;
+    aspect-ratio: 2/3;
+}
+.movie-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.watchlist-button {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.watchlist-button:hover,
+.watchlist-button:active {
+    transform: scale(1.1);
+}
+
+.watchlist-button i {
+    color: #121212;
+    background-color: #ffffff;
+    padding: 0.5em;
+    font-size: 0.8em;
+    border-radius: 50%;
+}
+
+.watchlist-button i:hover,
+.watchlist-button i:active {
+    background-color: #e2e2e2;
+}
+
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.em;
+}
+
+.movie-info p,
+.movie-info button,
+.movie-summary{
+    font-size: 0.8rem;
+}
+
+.movie-summary {
+    font-weight: 200;
+}
+.movie-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

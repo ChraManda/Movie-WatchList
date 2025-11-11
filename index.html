@@ -4,13 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
     <title>Movie Watchlist</title>
 </head>
 <body>
-    <div class="header-container">
-        <h1>Find Your Film</h1>
-        <a href="watchlist.html">My Watchtlist</a>
-    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <h1>Find Your Film</h1>
+                <a href="watchlist.html">My Watchtlist</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="search-container">
+                <div class="input-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" 
+                    placeholder="Search for movies...">
+                </div>
+                <button class="search-button">Search</button>
+            </div>
+            <div class="movies">
+                <div id="movies-container" class="movies-container">
+                    <img class="movie-poster" src="images/filmposters.jpg" alt="">
+                    <div class="movie-desc">
+                        <div class="movie-header">
+                            <h2 class="movie-title">Movie Title</h2>
+                            <p class="movie-ratings">⭐ 8.5/10</p>
+                        </div>
+                        <div class="movie-info">
+                            <p>116 min</p>
+                            <p>Drama, Mystery, Sci-fi</p>
+                            <button class="watchlist-button">
+                                <i class="fa-solid fa-plus"></i> Watchlist
+                            </button>
+                        </div>
+                        <p class="movie-summary">This is a brief summary of the movie plot. It gives an overview of the storyline and key elements to entice viewers to watch the film.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="movies-container" class="movies-container">
+                    <img class="movie-poster" src="images/filmposters.jpg" alt="">
+                    <div class="movie-desc">
+                        <div class="movie-header">
+                            <h2 class="movie-title">Movie Title</h2>
+                            <p class="movie-ratings">⭐ 8.5/10</p>
+                        </div>
+                        <div class="movie-info">
+                            <p>116 min</p>
+                            <p>Drama, Mystery, Sci-fi</p>
+                            <button class="watchlist-button">
+                                <i class="fa-solid fa-plus"></i> Watchlist
+                            </button>
+                        </div>
+                        <p class="movie-summary">This is a brief summary of the movie plot. It gives an overview of the storyline and key elements to entice viewers to watch the film.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
     <script type="module" src="index.js"></script>
 </body>
 </html>
