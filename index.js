@@ -3,7 +3,7 @@
 const moviesEl = document.getElementById("movies")
 const searchMovies = []
 const searchBtn = document.getElementById("search-button")
-const watchlistFromLocalStorage =JSON.parse(localStorage.getItem("watchlist"))
+const watchlistFromLocalStorage = JSON.parse(localStorage.getItem("watchlist"))
 let watchlist = []
 
 // Function to fetch movies based on search input
@@ -82,8 +82,28 @@ searchBtn.addEventListener("click", () => {
 
 
 moviesEl.addEventListener('click', e => {
-    if (e.target.closest('.watchlist-button')) {
-        console.log("Added to watchlist", e.target.dataset.watchlistbtn)
-    }
+    const btn = e.target.closest('.watchlist-button')
+  
+    if (!btn) return
+
+    const movieId = btn.querySelector('i').dataset.watchlistbtn
    
+    const selectedMovie = searchMovies.find(movie => movie.imdbID === movieId)
+
+    if (selectedMovie) {
+        const movieObj = {
+            id: selectedMovie.imdbID,
+            title: selectedMovie.Title,
+            plot: selectedMovie.Plot,
+            rating: selectedMovie.imdbRating,
+            genre: selectedMovie.Genre,
+            runtime: selectedMovie.Runtime,
+            poster: selectedMovie.Poster
+        }
+
+        watchlist.push(movieObj)
+        localStorage.setItem('watchlist', JSON.stringify(watchlist))
+        console.log(watchlist)
+        localStorage.clear()
+    }
 })
