@@ -5,11 +5,12 @@
 //     .catch(err => console.log(err));
 
 const moviesEl = document.getElementById("movies")
-
 const searchMovies = []
+const searchBtn = document.getElementById("search-button")
 
-
+// Function to fetch movies based on search input
 const fetchMovies = async movie => {
+    try {  
         const res = await fetch(`https://www.omdbapi.com/?apikey=45445705&s=${movie}`)
         const data = await res.json()
         
@@ -20,36 +21,61 @@ const fetchMovies = async movie => {
                 searchMovies.push(detailData)
             }
         } else {
-            console.log("Movie not found")
+            throw new Error("Unable to find what you are looking for. Please try another search.");
         }
+    } catch (error) {
+        throw error
+    }
 }
 
-const renderMovies = async () => {
+// Event listener for search button
+searchBtn.addEventListener("click", () => {
+    searchMovies.length = 0
+    const searchInput = document.getElementById("search-input").value
+    const renderMovies = async () => {
+         moviesEl.innerHTML = `
+         <div class="loading"></div>
+         <p class="loading-text">Loading...</p>`;
 
-    await fetchMovies('batman')
+    try {
+        await fetchMovies(searchInput)
 
-    const movies = searchMovies.map(movie => 
-        `<div id="movies-container" class="movies-container">
-                        <img class="movie-poster" src="${movie.Poster}" alt="">
-                        <div class="movie-desc">
-                            <div class="movie-header">
-                                <h3 class="movie-title">${movie.Title}</h3>
-                                <p class="movie-ratings">⭐ ${movie.imdbRating}/10</p>
+        const movies = searchMovies.map(movie => 
+            `<div id="movies-container" class="movies-container">
+                            <img class="movie-poster" src="${movie.Poster}" alt="">
+                            <div class="movie-desc">
+                                <div class="movie-header">
+                                    <h3 class="movie-title">${movie.Title}</h3>
+                                    <p class="movie-ratings">⭐ ${movie.imdbRating}/10</p>
+                                </div>
+                                <div class="movie-info">
+                                    <p>${movie.Runtime}</p>
+                                    <p>${movie.Genre}</p>
+                                    <button id='${movie.imdbID}' class="watchlist-button">
+                                        <i class="fa-solid fa-plus"></i> Watchlist
+                                    </button>
+                                </div>
+                                    <p class="movie-summary">${movie.Plot}</p>
                             </div>
-                            <div class="movie-info">
-                                <p>${movie.Runtime}</p>
-                                <p>${movie.Genre}</p>
-                                <button id='${movie.imdbID}' class="watchlist-button">
-                                    <i class="fa-solid fa-plus"></i> Watchlist
-                                </button>
-                            </div>
-                                <p class="movie-summary">${movie.Plot}</p>
                         </div>
-                    </div>
-                    `
-    ).join('')
+                        `
+        ).join('')
 
-    moviesEl.innerHTML = movies
-}
+        moviesEl.innerHTML = movies
+
+    } catch (error) {
+        moviesEl.innerHTML = `
+                <div class="start-exploring">
+                    <p class="start-exploring-text">
+                        Unable to find what you are looking for. Please try another search.
+                    </p>
+                </div>`
+        }
+    }
+
+    renderMovies()
+})
+
+
+
     
-renderMovies()
