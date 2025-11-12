@@ -163,7 +163,7 @@ a:hover, a:active {
     transform: scale(1.1);
 }
 
-.watchlist-button i {
+.watchlist-button i{
     color: #121212;
     background-color: #ffffff;
     padding: 0.5em;
@@ -203,7 +203,7 @@ a:hover, a:active {
     margin-left: 1em;
 }
 
-.start-exploring {
+.start-exploring{
     text-align: center;
     color: #bbbbbb;
     margin: 10em 2em;
@@ -217,4 +217,22 @@ a:hover, a:active {
 .start-exploring-text {
     font-size: 1rem;
     font-weight: 900;
+}
+.add-movies {
+    margin: -8em 4em 5.71em 4em;
+    padding: 0.5em;
+    background-color: #282828;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.add-movies a {
+    background-color: inherit;
+    font-weight: 900;
+}
+
+.remove-button {
+    color: whitesmoke;
+    background: none;
+    border: none;
 }
