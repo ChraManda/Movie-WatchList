@@ -4,15 +4,22 @@
 const moviesEl = document.getElementById("movies")
 const searchBtn = document.getElementById("search-button")
 const watchlistMoviesEl = document.getElementById("watchlist-movies")
+const searchInput = document.getElementById("search-input")
 
 let watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
 const searchMovies = []
 
 
 // ===============================
-// SEARCH PAGE (index.html)
+// SEARCH PAGE (index.html) 
 // ===============================
-if (moviesEl && searchBtn) {
+if (moviesEl && searchBtn && searchInput) {
+
+    // ==============================
+    //          Functions
+    // ==============================
+
+
     // Fetch movies by search input
     const fetchMovies = async (movie) => {
         try {
@@ -34,20 +41,23 @@ if (moviesEl && searchBtn) {
         }
     }
 
-    // Search button handler
-    searchBtn.addEventListener("click", () => {
-        const searchInput = document.getElementById("search-input").value.trim()
+    //====================
+    // Handle Search
+    //====================
+    const handlesearch = () => {
 
+        const searchInput = document.getElementById("search-input").value.trim()
+    
         const renderMovies = async () => {
             moviesEl.innerHTML = `
                 <div class="loading"></div>
                 <p class="loading-text">Loading...</p>
             `
-
+    
             try {
                 if (!searchInput) throw new Error("Please enter a movie title to search.")
                 await fetchMovies(searchInput)
-
+    
                 const moviesHTML = searchMovies.map(movie => {
                     const inWatchlist = watchlist.some(m => m.id === movie.imdbID)
                     return `
@@ -70,7 +80,7 @@ if (moviesEl && searchBtn) {
                         </div>
                     `
                 }).join('')
-
+    
                 moviesEl.innerHTML = moviesHTML
             } catch (error) {
                 moviesEl.innerHTML = `
@@ -81,7 +91,22 @@ if (moviesEl && searchBtn) {
         }
 
         renderMovies()
+    }
+
+
+    // ==============================
+    //      Event Listeners
+    // ==============================
+
+    // Enter key handler
+    searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            handlesearch()
+        }
     })
+
+    // Search button handler
+    searchBtn.addEventListener("click", () => handlesearch)
 
     // Add to Watchlist
     moviesEl.addEventListener('click', e => {
