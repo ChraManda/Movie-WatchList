@@ -104,7 +104,7 @@ if (moviesEl && searchBtn) {
         }
 
         if (!watchlist.some(m => m.id === movieObj.id)) {
-            watchlist.push(movieObj)
+            watchlist.unshift(movieObj)
             localStorage.setItem('watchlist', JSON.stringify(watchlist))
             btn.textContent = "✓ Added"
             btn.disabled = true
