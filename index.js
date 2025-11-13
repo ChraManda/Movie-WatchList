@@ -105,8 +105,9 @@ if (moviesEl && searchBtn && searchInput) {
         }
     })
 
+
     // Search button handler
-    searchBtn.addEventListener("click", () => handlesearch)
+    searchBtn.addEventListener("click", handlesearch)
 
     // Add to Watchlist
     moviesEl.addEventListener('click', e => {
