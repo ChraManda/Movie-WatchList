@@ -105,6 +105,17 @@ if (moviesEl && searchBtn && searchInput) {
         }
     })
 
+    // Redirect to searchbar
+    document.addEventListener("keydown", e => {
+    if (e.key === "/" && document.activeElement !== searchInput && 
+        document.activeElement.tagName !== "INPUT" && 
+        document.activeElement.tagName !== "TEXTAREA") {
+
+        e.preventDefault() 
+        searchInput.focus() 
+    }
+    })
+
 
     // Search button handler
     searchBtn.addEventListener("click", handlesearch)
